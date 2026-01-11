@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reusable Skills | Cloud-Native AI-400</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .skills-hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .skills-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .skills-hero p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .skill-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .skill-header .number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .skill-header h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .skill-body {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .skill-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .skill-stat {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .skill-stat .label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .skill-stat .value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .skill-features {
+            margin: 20px 0;
+            list-style: none;
+        }
+
+        .skill-features li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-features li::before {
+            content: '✓';
+            margin-right: 10px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .skill-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-btn {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .skill-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .skill-details-page {
+            display: none;
+            animation: slideInUp 0.5s ease;
+        }
+
+        .skill-details-page.active {
+            display: block;
+        }
+
+        .skill-details-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .pattern-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .pattern-item {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .pattern-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .code-example {
+            background: var(--bg-darker);
+            color: #4ade80;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            margin: 20px 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo" onclick="goToHome()">
+                <span class="logo-icon">☁️</span>
+                <span class="logo-text">Cloud-Native AI-400</span>
+            </div>
+            <nav class="navbar-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="project.html" class="nav-link">Project</a>
+                <a href="skills.html" class="nav-link active">Reusable Skills</a>
+                <a href="api.html" class="nav-link">Task API</a>
+                <a href="github.html" class="nav-link">GitHub</a>
+            </nav>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Skills Overview Page -->
+    <div id="skills-overview" class="active">
+        <!-- Hero Section -->
+        <section class="skills-hero">
+            <h1>Professional Reusable Skills</h1>
+            <p>4 Production-Ready AI Skills for Accelerated Development</p>
+        </section>
+
+        <!-- Skills Grid -->
+        <section class="skills-container">
+            <h2 style="text-align: center; font-size: 36px; margin-bottom: 50px; color: var(--primary-color);">
+                Featured Skills
+            </h2>
+
+            <div class="skills-grid">
+                <!-- Skill 1 -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="number">1</div>
+                        <h3>Building FastAPI Apps</h3>
+                    </div>
+                    <div class="skill-body">
+                        <p>Complete patterns for building production-grade FastAPI applications from scratch.</p>
+                        <div class="skill-stats">
+                            <div class="skill-stat">
+                                <div class="label">Lines</div>
+                                <div class="value">417</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Patterns</div>
+                                <div class="value">10</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Examples</div>
+                                <div class="value">26</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">References</div>
+                                <div class="value">3</div>
+                            </div>
+                        </div>
+                        <ul class="skill-features">
+                            <li>API design patterns</li>
+                            <li>Database integration</li>
+                            <li>Authentication & security</li>
+                            <li>Error handling</li>
+                            <li>Deployment ready</li>
+                        </ul>
+                        <div class="skill-footer">
+                            <button class="skill-btn" onclick="showSkillDetails(1)">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="number">2</div>
+                        <h3>Testing with Pytest</h3>
+                    </div>
+                    <div class="skill-body">
+                        <p>Complete testing patterns from basic unit tests to advanced integration testing.</p>
+                        <div class="skill-stats">
+                            <div class="skill-stat">
+                                <div class="label">Lines</div>
+                                <div class="value">552</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Patterns</div>
+                                <div class="value">15</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Examples</div>
+                                <div class="value">38</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Advanced</div>
+                                <div class="value">5</div>
+                            </div>
+                        </div>
+                        <ul class="skill-features">
+                            <li>Unit testing</li>
+                            <li>Fixtures & mocking</li>
+                            <li>Async testing</li>
+                            <li>Parametrization</li>
+                            <li>Coverage analysis</li>
+                        </ul>
+                        <div class="skill-footer">
+                            <button class="skill-btn" onclick="showSkillDetails(2)">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="number">3</div>
+                        <h3>FastAPI + SQLModel</h3>
+                    </div>
+                    <div class="skill-body">
+                        <p>Complete patterns for database-backed FastAPI applications using SQLModel.</p>
+                        <div class="skill-stats">
+                            <div class="skill-stat">
+                                <div class="label">Lines</div>
+                                <div class="value">441</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Patterns</div>
+                                <div class="value">9</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Examples</div>
+                                <div class="value">16</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Concepts</div>
+                                <div class="value">7</div>
+                            </div>
+                        </div>
+                        <ul class="skill-features">
+                            <li>Model design</li>
+                            <li>CRUD operations</li>
+                            <li>Relationships</li>
+                            <li>Async database</li>
+                            <li>Query optimization</li>
+                        </ul>
+                        <div class="skill-footer">
+                            <button class="skill-btn" onclick="showSkillDetails(3)">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="number">4</div>
+                        <h3>ToDo Task Manager</h3>
+                    </div>
+                    <div class="skill-body">
+                        <p>Domain-specific patterns for implementing task management features.</p>
+                        <div class="skill-stats">
+                            <div class="skill-stat">
+                                <div class="label">Lines</div>
+                                <div class="value">472</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Features</div>
+                                <div class="value">4</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Examples</div>
+                                <div class="value">12</div>
+                            </div>
+                            <div class="skill-stat">
+                                <div class="label">Endpoints</div>
+                                <div class="value">8</div>
+                            </div>
+                        </div>
+                        <ul class="skill-features">
+                            <li>Task models</li>
+                            <li>Status tracking</li>
+                            <li>Filtering & sorting</li>
+                            <li>Statistics</li>
+                            <li>API endpoints</li>
+                        </ul>
+                        <div class="skill-footer">
+                            <button class="skill-btn" onclick="showSkillDetails(4)">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Summary -->
+            <div style="background: var(--bg-light); padding: 40px; border-radius: 15px; margin-top: 60px; text-align: center;">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px;">Total Skills Content</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: var(--secondary-color);">1,882</div>
+                        <p style="color: var(--text-muted);">Total Lines of Code</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: var(--accent-cyan);">92+</div>
+                        <p style="color: var(--text-muted);">Code Examples</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: var(--accent-purple);">38</div>
+                        <p style="color: var(--text-muted);">Core Patterns</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 36px; font-weight: 800; color: var(--accent-pink);">100%</div>
+                        <p style="color: var(--text-muted);">Verified & Tested</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Skill 1 Details -->
+    <div id="skill-details-1" class="skill-details-page">
+        <section class="skill-details-content">
+            <a class="back-btn" onclick="showSkillOverview()">← Back to Skills</a>
+            <h1>Building FastAPI Apps</h1>
+            <p style="font-size: 18px; color: var(--text-muted); margin: 20px 0;">Complete patterns for building production-grade FastAPI applications from scratch.</p>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Use When:</h2>
+            <ul class="skill-features" style="list-style: none;">
+                <li>Creating new FastAPI web applications</li>
+                <li>Building REST APIs or microservices</li>
+                <li>Setting up project structure and organization</li>
+                <li>Implementing API endpoints and routes</li>
+                <li>Designing RESTful API patterns</li>
+            </ul>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Core Patterns (10):</h2>
+            <div class="pattern-list">
+                <div class="pattern-item">
+                    <h4>Application Setup</h4>
+                    <p>FastAPI initialization and configuration</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Project Structure</h4>
+                    <p>Organized folder layout for scalability</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Dependency Injection</h4>
+                    <p>Using Depends() for clean architecture</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Request/Response Models</h4>
+                    <p>Pydantic validation and serialization</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Parameter Validation</h4>
+                    <p>Path and query parameter validation</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Error Handling</h4>
+                    <p>HTTPException patterns and responses</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Database Integration</h4>
+                    <p>SQLAlchemy and SQLModel patterns</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Authentication & Security</h4>
+                    <p>JWT tokens and role-based access</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Background Tasks</h4>
+                    <p>Celery, APScheduler, BackgroundTasks</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Testing & Deployment</h4>
+                    <p>TestClient patterns and production setup</p>
+                </div>
+            </div>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Example Code:</h2>
+            <div class="code-example">
+from fastapi import FastAPI, Depends, HTTPException
+from sqlmodel import SQLModel, Session
+
+app = FastAPI(
+    title="Task Management API",
+    description="Complete CRUD API",
+    version="1.0.0"
+)
+
+class Task(SQLModel, table=True):
+    id: Optional[int] = None
+    title: str = Field(min_length=1)
+    status: str = Field(default="todo")
+
+@app.post("/tasks")
+async def create_task(task: Task, session: Session = Depends(get_session)):
+    session.add(task)
+    session.commit()
+    return task
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <button class="btn btn-primary" onclick="showSkillOverview()">Back to Skills Overview</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Skill 2 Details -->
+    <div id="skill-details-2" class="skill-details-page">
+        <section class="skill-details-content">
+            <a class="back-btn" onclick="showSkillOverview()">← Back to Skills</a>
+            <h1>Testing with Pytest</h1>
+            <p style="font-size: 18px; color: var(--text-muted); margin: 20px 0;">Complete testing patterns from basic unit tests to advanced integration testing strategies.</p>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Use When:</h2>
+            <ul class="skill-features" style="list-style: none;">
+                <li>Writing unit tests for functions and classes</li>
+                <li>Creating integration tests for multiple components</li>
+                <li>Setting up test fixtures and databases</li>
+                <li>Mocking external dependencies</li>
+                <li>Testing asynchronous code with async/await</li>
+            </ul>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Testing Patterns (15 total):</h2>
+            <div class="pattern-list">
+                <div class="pattern-item">
+                    <h4>Basic Tests</h4>
+                    <p>Test functions and assertions</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Fixtures</h4>
+                    <p>Setup and teardown management</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Parametrization</h4>
+                    <p>Running tests with multiple inputs</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Mocking</h4>
+                    <p>Mocking functions and external services</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Async Testing</h4>
+                    <p>Testing async/await code</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Database Fixtures</h4>
+                    <p>Isolated test databases</p>
+                </div>
+            </div>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Example Code:</h2>
+            <div class="code-example">
+import pytest
+from fastapi.testclient import TestClient
+from main import app
+
+client = TestClient(app)
+
+@pytest.fixture
+def db_session():
+    """Provides isolated database per test"""
+    engine = create_engine("sqlite:///:memory:")
+    SQLModel.metadata.create_all(engine)
+    with Session(engine) as session:
+        yield session
+
+def test_create_task(db_session):
+    response = client.post("/tasks", json={"title": "Test"})
+    assert response.status_code == 201
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <button class="btn btn-primary" onclick="showSkillOverview()">Back to Skills Overview</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Skill 3 Details -->
+    <div id="skill-details-3" class="skill-details-page">
+        <section class="skill-details-content">
+            <a class="back-btn" onclick="showSkillOverview()">← Back to Skills</a>
+            <h1>FastAPI + SQLModel</h1>
+            <p style="font-size: 18px; color: var(--text-muted); margin: 20px 0;">Complete patterns for building database-backed FastAPI applications using SQLModel.</p>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Use When:</h2>
+            <ul class="skill-features" style="list-style: none;">
+                <li>Designing database models with validation</li>
+                <li>Creating CRUD operations</li>
+                <li>Managing database relationships</li>
+                <li>Implementing async database operations</li>
+                <li>Building API endpoints backed by databases</li>
+            </ul>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Database Patterns (9):</h2>
+            <div class="pattern-list">
+                <div class="pattern-item">
+                    <h4>Database Setup</h4>
+                    <p>Engine and session configuration</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Model Definition</h4>
+                    <p>SQLModel with validation</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Schema Validation</h4>
+                    <p>Pydantic request/response schemas</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>CRUD Operations</h4>
+                    <p>Create, read, update, delete patterns</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Relationships</h4>
+                    <p>One-to-many, many-to-many</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Dependencies</h4>
+                    <p>Session management with Depends()</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Async Operations</h4>
+                    <p>Async/await database access</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Error Handling</h4>
+                    <p>Exception handling for database errors</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Query Optimization</h4>
+                    <p>Eager loading and filtering</p>
+                </div>
+            </div>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Example Code:</h2>
+            <div class="code-example">
+from sqlmodel import SQLModel, Field, Session, create_engine
+from typing import Optional
+
+class Task(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    title: str = Field(min_length=1, max_length=255)
+    description: Optional[str] = None
+    status: str = Field(default="todo")
+
+def create_task(session: Session, task: Task) -> Task:
+    session.add(task)
+    session.commit()
+    session.refresh(task)
+    return task
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <button class="btn btn-primary" onclick="showSkillOverview()">Back to Skills Overview</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Skill 4 Details -->
+    <div id="skill-details-4" class="skill-details-page">
+        <section class="skill-details-content">
+            <a class="back-btn" onclick="showSkillOverview()">← Back to Skills</a>
+            <h1>ToDo Task Manager</h1>
+            <p style="font-size: 18px; color: var(--text-muted); margin: 20px 0;">Domain-specific patterns for implementing task management features in applications.</p>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Use When:</h2>
+            <ul class="skill-features" style="list-style: none;">
+                <li>Building task management applications</li>
+                <li>Implementing task status tracking</li>
+                <li>Creating task filtering and sorting</li>
+                <li>Adding task completion tracking</li>
+                <li>Implementing task priority levels</li>
+            </ul>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Task Domain Features:</h2>
+            <div class="pattern-list">
+                <div class="pattern-item">
+                    <h4>Task Models</h4>
+                    <p>Status and priority enumerations</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>CRUD Operations</h4>
+                    <p>Complete create, read, update, delete</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Filtering</h4>
+                    <p>Filter by status and priority</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Sorting & Pagination</h4>
+                    <p>Sort and paginate task results</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Task Search</h4>
+                    <p>Full-text search capabilities</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Statistics</h4>
+                    <p>Completion rates and breakdowns</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>Completion Tracking</h4>
+                    <p>Mark as done with timestamps</p>
+                </div>
+                <div class="pattern-item">
+                    <h4>API Endpoints</h4>
+                    <p>Complete REST API specification</p>
+                </div>
+            </div>
+
+            <h2 style="color: var(--primary-color); margin-top: 40px;">Example Code:</h2>
+            <div class="code-example">
+from enum import Enum
+from typing import Optional
+from datetime import datetime
+
+class TaskStatus(str, Enum):
+    TODO = "todo"
+    IN_PROGRESS = "in_progress"
+    DONE = "done"
+
+class TaskPriority(str, Enum):
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+    URGENT = "urgent"
+
+@app.post("/tasks")
+async def create_task(task: TaskCreate):
+    db_task = Task.from_orm(task)
+    session.add(db_task)
+    session.commit()
+    return db_task
+
+@app.post("/tasks/{task_id}/complete")
+async def complete_task(task_id: int):
+    task = session.get(Task, task_id)
+    task.status = TaskStatus.DONE
+    task.completed_at = datetime.utcnow()
+    session.commit()
+    return task
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <button class="btn btn-primary" onclick="showSkillOverview()">Back to Skills Overview</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cloud-Native AI-400</h4>
+                    <p>4 Professional Reusable Skills</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="project.html">Project</a></li>
+                        <li><a href="api.html">API</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cloud-Native AI-400. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function showSkillDetails(skillNum) {
+            document.getElementById('skills-overview').style.display = 'none';
+            document.getElementById(`skill-details-${skillNum}`).classList.add('active');
+        }
+
+        function showSkillOverview() {
+            document.querySelectorAll('.skill-details-page').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById('skills-overview').style.display = 'block';
+        }
+
+        // Set active nav link
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-link')[2].classList.add('active');
+        });
+    </script>
+</body>
+</html>

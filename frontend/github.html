@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository | Cloud-Native AI-400</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .github-hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .github-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .github-hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .github-button {
+            display: inline-block;
+            background: white;
+            color: #1e293b;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .github-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .github-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .file-tree {
+            background: var(--bg-darker);
+            color: #4ade80;
+            padding: 30px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .info-box p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .repo-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .repo-stat {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .repo-stat .number {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .repo-stat p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">☁️</span>
+                <span class="logo-text">Cloud-Native AI-400</span>
+            </div>
+            <nav class="navbar-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="project.html" class="nav-link">Project</a>
+                <a href="skills.html" class="nav-link">Reusable Skills</a>
+                <a href="api.html" class="nav-link">Task API</a>
+                <a href="github.html" class="nav-link active">GitHub</a>
+            </nav>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- GitHub Hero -->
+    <section class="github-hero">
+        <h1>GitHub Repository</h1>
+        <p>Complete Cloud-Native AI-400 Project with Reusable Skills</p>
+        <a href="https://github.com/NAVEED261/Cloud-native-AI-400-PROJECT-1" target="_blank" class="github-button">
+            📂 Visit Repository
+        </a>
+    </section>
+
+    <!-- GitHub Content -->
+    <section class="github-content">
+        <!-- Repository Info -->
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>🎯 Project Name</h3>
+                <p>Cloud-native-AI-400-PROJECT-1</p>
+                <p style="font-size: 12px; opacity: 0.7; margin-top: 10px;">Owner: NAVEED261</p>
+            </div>
+            <div class="info-box">
+                <h3>🔗 Repository URL</h3>
+                <p style="word-break: break-all;">
+                    <a href="https://github.com/NAVEED261/Cloud-native-AI-400-PROJECT-1" target="_blank" style="color: var(--primary-color); text-decoration: none;">
+                        github.com/NAVEED261/Cloud-native-AI-400-PROJECT-1
+                    </a>
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>📦 Repository Type</h3>
+                <p>Public Repository</p>
+                <p style="font-size: 12px; opacity: 0.7; margin-top: 10px;">Complete source code and documentation</p>
+            </div>
+        </div>
+
+        <!-- Repository Statistics -->
+        <h2 style="color: var(--primary-color); font-size: 32px; margin: 60px 0 30px;">📊 Repository Statistics</h2>
+        <div class="repo-stats">
+            <div class="repo-stat">
+                <div class="number">360+</div>
+                <p>Files</p>
+            </div>
+            <div class="repo-stat">
+                <div class="number">102.5</div>
+                <p>MB Total Size</p>
+            </div>
+            <div class="repo-stat">
+                <div class="number">5</div>
+                <p>Commits</p>
+            </div>
+            <div class="repo-stat">
+                <div class="number">✅ 100%</div>
+                <p>Tests Passing</p>
+            </div>
+        </div>
+
+        <!-- Project Includes -->
+        <h2 style="color: var(--primary-color); font-size: 32px; margin: 60px 0 30px;">📁 What's Included</h2>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>🚀 FastAPI Application</h3>
+                <ul class="features-list">
+                    <li>main.py (537 lines)</li>
+                    <li>8 fully functional endpoints</li>
+                    <li>SQLModel integration</li>
+                    <li>Automatic API documentation</li>
+                    <li>Type-safe operations</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>🧪 Test Suite</h3>
+                <ul class="features-list">
+                    <li>test_main.py (591 lines)</li>
+                    <li>36 comprehensive tests</li>
+                    <li>100% passing rate</li>
+                    <li>Database isolation</li>
+                    <li>Integration tests</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>💾 Database</h3>
+                <ul class="features-list">
+                    <li>SQLite embedded</li>
+                    <li>Auto table creation</li>
+                    <li>Type validation</li>
+                    <li>Transaction support</li>
+                    <li>Error handling</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>🎯 Reusable Skills</h3>
+                <ul class="features-list">
+                    <li>4 professional skills</li>
+                    <li>1,882 lines total</li>
+                    <li>92+ code examples</li>
+                    <li>38 core patterns</li>
+                    <li>100% verified</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>📚 Documentation</h3>
+                <ul class="features-list">
+                    <li>API Reference</li>
+                    <li>Implementation Guide</li>
+                    <li>Reusable Skills Guide</li>
+                    <li>Quick Start Guide</li>
+                    <li>Troubleshooting</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>🛠️ Technology Stack</h3>
+                <ul class="features-list">
+                    <li>FastAPI 0.128.0</li>
+                    <li>SQLModel 0.0.31</li>
+                    <li>pytest 9.0.2</li>
+                    <li>Pydantic 2.12.5</li>
+                    <li>SQLAlchemy 2.0.45</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Structure -->
+        <h2 style="color: var(--primary-color); font-size: 32px; margin: 60px 0 30px;">📂 Project Structure</h2>
+        <div class="file-tree">Cloud-native-AI-400-PROJECT-1/
+├── main.py                              (537 lines - FastAPI API)
+├── test_main.py                         (591 lines - 36 tests)
+├── README.md                            (Comprehensive guide)
+├── API_DOCUMENTATION.md                 (API reference)
+├── IMPLEMENTATION_SUMMARY.md            (Implementation details)
+├── pyproject.toml                       (Project config)
+├── uv.lock                              (Dependency lock)
+│
+├── frontend/                            (Professional UI)
+│   ├── index.html                       (Home page)
+│   ├── project.html                     (Project details)
+│   ├── skills.html                      (Reusable skills)
+│   ├── api.html                         (API documentation)
+│   ├── github.html                      (GitHub info)
+│   ├── styles.css                       (Professional styling)
+│   └── script.js                        (Interactivity)
+│
+├── .claude/
+│   └── skills/
+│       └── Reusable skills/
+│           ├── README.md                (Skills guide)
+│           ├── building-fastapi-apps.skill
+│           ├── testing-with-pytest.skill
+│           ├── fastapi-sqlmodel.skill
+│           └── todo-task-manager.skill
+│
+└── history/
+    └── prompts/
+        └── general/
+            ├── 001-setup-phr.general.prompt.md
+            ├── 002-develop-fastapi-skill.general.prompt.md
+            ├── 003-build-professional-reusable-skills.general.prompt.md
+            ├── 004-push-project-to-github.general.prompt.md
+            └── 005-comprehensive-reusable-skills-readme.general.prompt.md
+        </div>
+
+        <!-- Key Features -->
+        <h2 style="color: var(--primary-color); font-size: 32px; margin: 60px 0 30px;">✨ Key Features</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+            <div style="background: var(--bg-light); padding: 25px; border-radius: 10px; border-left: 4px solid var(--primary-color);">
+                <h4 style="color: var(--primary-color); margin-bottom: 10px;">Complete CRUD Operations</h4>
+                <p style="color: var(--text-muted);">Create, Read, Update, Delete tasks with full validation and error handling.</p>
+            </div>
+            <div style="background: var(--bg-light); padding: 25px; border-radius: 10px; border-left: 4px solid var(--secondary-color);">
+                <h4 style="color: var(--secondary-color); margin-bottom: 10px;">Advanced Filtering</h4>
+                <p style="color: var(--text-muted);">Filter by status and priority, with pagination support for large datasets.</p>
+            </div>
+            <div style="background: var(--bg-light); padding: 25px; border-radius: 10px; border-left: 4px solid var(--accent-cyan);">
+                <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">Task Statistics</h4>
+                <p style="color: var(--text-muted);">Get completion rates and breakdowns by status and priority.</p>
+            </div>
+            <div style="background: var(--bg-light); padding: 25px; border-radius: 10px; border-left: 4px solid var(--accent-purple);">
+                <h4 style="color: var(--accent-purple); margin-bottom: 10px;">Full Documentation</h4>
+                <p style="color: var(--text-muted);">Comprehensive API docs, Swagger UI, and ReDoc available.</p>
+            </div>
+            <div style="background: var(--bg-light); padding: 25px; border-radius: 10px; border-left: 4px solid var(--accent-pink);">
+                <h4 style="color: var(--accent-pink); margin-bottom: 10px;">Production Ready</h4>
+                <p style="color: var(--text-muted);">Deployable as-is with minimal configuration and comprehensive error handling.</p>
+            </div>
+            <div style="background: var(--bg-light); padding: 25px; border-radius: 10px; border-left: 4px solid var(--accent-orange);">
+                <h4 style="color: var(--accent-orange); margin-bottom: 10px;">Type Safe</h4>
+                <p style="color: var(--text-muted);">100% type hints throughout codebase for better reliability.</p>
+            </div>
+        </div>
+
+        <!-- Getting Started -->
+        <h2 style="color: var(--primary-color); font-size: 32px; margin: 60px 0 30px;">🚀 Getting Started</h2>
+        <div style="background: var(--bg-light); padding: 30px; border-radius: 10px;">
+            <h3 style="color: var(--text-dark); margin-bottom: 20px;">Clone and Setup:</h3>
+            <div style="background: var(--bg-darker); color: #4ade80; padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.5;">
+# Clone repository
+git clone https://github.com/NAVEED261/Cloud-native-AI-400-PROJECT-1.git
+cd Cloud-native-AI-400-PROJECT-1
+
+# Install dependencies
+uv sync
+
+# Start API server
+uv run uvicorn main:app --reload
+
+# Run tests
+pytest test_main.py -v
+
+# Access documentation
+# Swagger UI: http://localhost:8000/docs
+# ReDoc: http://localhost:8000/redoc
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div style="text-align: center; margin: 80px 0;">
+            <h2 style="color: var(--primary-color); font-size: 32px; margin-bottom: 30px;">Ready to Explore the Project?</h2>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/NAVEED261/Cloud-native-AI-400-PROJECT-1" target="_blank" class="btn btn-primary">
+                    🔗 Visit GitHub Repository
+                </a>
+                <button class="btn btn-secondary" onclick="window.location.href='index.html'">← Back to Home</button>
+                <button class="btn btn-tertiary" onclick="window.location.href='skills.html'">View Reusable Skills</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cloud-Native AI-400</h4>
+                    <p>GitHub Repository Information</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/NAVEED261/Cloud-native-AI-400-PROJECT-1" target="_blank">GitHub Repository</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="project.html">Project</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Repository</h4>
+                    <p>NAVEED261/Cloud-native-AI-400-PROJECT-1</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cloud-Native AI-400. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
