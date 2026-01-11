@@ -1,5 +1,7 @@
 # Cloud-Native AI-400 Project 1: Complete Task Management API + Professional Reusable Skills
 
+https://claude.ai/public/artifacts/84646e8e-2183-4ebc-9f2a-ce9a7f7578f2
+
 A production-ready **Task Management API** built with FastAPI, SQLModel, and pytest, featuring **4 professional, reusable AI skills** for accelerating Python development.
 
 **Status:** ✅ 100% Complete | ✅ All Tests Passing (36/36) | ✅ Production Ready
